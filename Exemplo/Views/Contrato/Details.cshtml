@@ -1,0 +1,42 @@
+﻿@model Exemplo.Models.Contrato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeFornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeFornecedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NºProcedimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NºProcedimento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Contrato }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

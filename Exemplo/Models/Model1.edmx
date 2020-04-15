@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contrato">
+          <Key>
+            <PropertyRef Name="Id_Contrato" />
+          </Key>
+          <Property Name="Id_Contrato" Type="int" Nullable="false" />
+          <Property Name="NomeFornecedor" Type="char" MaxLength="10" />
+          <Property Name="PedidoCompra" Type="int" />
+          <Property Name="NºProcedimento" Type="int" />
+        </EntityType>
+        <EntityType Name="Despesa">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_Fornecedor" />
+          </Key>
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="Id_Fornecedor" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="DataDespesa" Type="nchar" MaxLength="10" />
+          <Property Name="Despesa" Type="nchar" MaxLength="10" />
+          <Property Name="NºFatura" Type="nchar" MaxLength="10" />
+          <Property Name="PedidoCompra" Type="nchar" MaxLength="10" />
+          <Property Name="Preço" Type="int" />
+        </EntityType>
+        <EntityType Name="Fornecedores">
+          <Key>
+            <PropertyRef Name="Id_Fornecedor" />
+          </Key>
+          <Property Name="Id_Fornecedor" Type="int" Nullable="false" />
+          <Property Name="NomeFornecedor" Type="nchar" MaxLength="10" />
+          <Property Name="NIPC" Type="nchar" MaxLength="10" />
+          <Property Name="Morada" Type="nchar" MaxLength="10" />
+          <Property Name="CodigoPostal" Type="nchar" MaxLength="10" />
+          <Property Name="Localidade" Type="nchar" MaxLength="10" />
+          <Property Name="Telefone" Type="nchar" MaxLength="10" />
+          <Property Name="Email" Type="nchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Kilometros">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="DataRegisto" Type="nchar" MaxLength="10" />
+          <Property Name="Kilometros" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Manutençao">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="DataManutençao" Type="date" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="Reparaçao" Type="nchar" MaxLength="10" />
+          <Property Name="Fatura" Type="nchar" MaxLength="10" />
+          <Property Name="Preço" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Utilizaçao Permanente">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="int" Nullable="false" />
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="DataInicio" Type="date" />
+          <Property Name="DataFim" Type="date" />
+        </EntityType>
+        <EntityType Name="Utilizaçao Temporaria">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="int" Nullable="false" />
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="DataInicio" Type="date" />
+          <Property Name="DataFim" Type="date" />
+          <Property Name="HoraInicio" Type="time" Precision="7" />
+          <Property Name="HoraFim" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nchar" MaxLength="10" />
+          <Property Name="Departamento" Type="nchar" MaxLength="20" />
+          <Property Name="Cargo" Type="nchar" MaxLength="20" />
+          <Property Name="Telefone" Type="nchar" MaxLength="9" />
+          <Property Name="CC" Type="int" />
+          <Property Name="Morada" Type="nchar" MaxLength="50" />
+          <Property Name="CodigoPostal" Type="nchar" MaxLength="8" />
+          <Property Name="Localidade" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Viatura">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Contrato" Type="int" Nullable="false" />
+          <Property Name="Id_Viatura" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="nchar" MaxLength="10" />
+          <Property Name="Marca" Type="nchar" MaxLength="10" />
+          <Property Name="Modelo" Type="nchar" MaxLength="10" />
+          <Property Name="NºProcedimento" Type="int" />
+          <Property Name="PedidoCompra" Type="int" />
+          <Property Name="Combustivel" Type="nchar" MaxLength="10" />
+          <Property Name="PreçoTotal" Type="int" />
+        </EntityType>
+        <Association Name="FK_Despesa_Fornecedores">
+          <End Role="Fornecedores" Type="Self.Fornecedores" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fornecedores">
+              <PropertyRef Name="Id_Fornecedor" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kilometros_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Kilometros" Type="Self.Kilometros" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Kilometros">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manutençao_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Manutençao">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao Permanente_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Utilizaçao Permanente" Type="Self.Utilizaçao Permanente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizaçao Permanente">
+              <PropertyRef Name="Id_Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao Permanente_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Utilizaçao Permanente" Type="Self.Utilizaçao Permanente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Utilizaçao Permanente">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao Temporaria_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Utilizaçao Temporaria" Type="Self.Utilizaçao Temporaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizaçao Temporaria">
+              <PropertyRef Name="Id_Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Viatura_Contrato">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="1" />
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="Id_Contrato" />
+            </Principal>
+            <Dependent Role="Viatura">
+              <PropertyRef Name="Id_Contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Despesa" EntityType="Self.Despesa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fornecedores" EntityType="Self.Fornecedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kilometros" EntityType="Self.Kilometros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manutençao" EntityType="Self.Manutençao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizaçao Permanente" EntityType="Self.Utilizaçao Permanente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizaçao Temporaria" EntityType="Self.Utilizaçao Temporaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Viatura" EntityType="Self.Viatura" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Despesa_Fornecedores" Association="Self.FK_Despesa_Fornecedores">
+            <End Role="Fornecedores" EntitySet="Fornecedores" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Viatura" Association="Self.FK_Despesa_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kilometros_Viatura" Association="Self.FK_Kilometros_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Kilometros" EntitySet="Kilometros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manutençao_Viatura" Association="Self.FK_Manutençao_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Manutençao" EntitySet="Manutençao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao Permanente_Utilizador" Association="Self.FK_Utilizaçao Permanente_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizaçao Permanente" EntitySet="Utilizaçao Permanente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao Permanente_Viatura" Association="Self.FK_Utilizaçao Permanente_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Utilizaçao Permanente" EntitySet="Utilizaçao Permanente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao Temporaria_Utilizador" Association="Self.FK_Utilizaçao Temporaria_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizaçao Temporaria" EntitySet="Utilizaçao Temporaria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Viatura_Contrato" Association="Self.FK_Viatura_Contrato">
+            <End Role="Contrato" EntitySet="Contrato" />
+            <End Role="Viatura" EntitySet="Viatura" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contrato">
+          <Key>
+            <PropertyRef Name="Id_Contrato" />
+          </Key>
+          <Property Name="Id_Contrato" Type="Int32" Nullable="false" />
+          <Property Name="NomeFornecedor" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PedidoCompra" Type="Int32" />
+          <Property Name="NºProcedimento" Type="Int32" />
+          <NavigationProperty Name="Viatura" Relationship="Self.FK_Viatura_Contrato" FromRole="Contrato" ToRole="Viatura" />
+        </EntityType>
+        <EntityType Name="Despesa">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_Fornecedor" />
+          </Key>
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="Id_Fornecedor" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataDespesa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Despesa1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NºFatura" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PedidoCompra" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Preço" Type="Int32" />
+          <NavigationProperty Name="Fornecedores" Relationship="Self.FK_Despesa_Fornecedores" FromRole="Despesa" ToRole="Fornecedores" />
+          <NavigationProperty Name="Viatura" Relationship="Self.FK_Despesa_Viatura" FromRole="Despesa" ToRole="Viatura" />
+        </EntityType>
+        <EntityType Name="Fornecedores">
+          <Key>
+            <PropertyRef Name="Id_Fornecedor" />
+          </Key>
+          <Property Name="Id_Fornecedor" Type="Int32" Nullable="false" />
+          <Property Name="NomeFornecedor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NIPC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Morada" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Localidade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Telefone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_Fornecedores" FromRole="Fornecedores" ToRole="Despesa" />
+        </EntityType>
+        <EntityType Name="Kilometros">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataRegisto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Kilometros1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Viatura" Relationship="Self.FK_Kilometros_Viatura" FromRole="Kilometros" ToRole="Viatura" />
+        </EntityType>
+        <EntityType Name="Manutençao">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="DataManutençao" Type="DateTime" Precision="0" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Reparaçao" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Fatura" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Preço" Type="Int32" />
+          <NavigationProperty Name="Viatura" Relationship="Self.FK_Manutençao_Viatura" FromRole="Manutençao" ToRole="Viatura" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Utilizaçao_Permanente">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="Int32" Nullable="false" />
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataInicio" Type="DateTime" Precision="0" />
+          <Property Name="DataFim" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Utilizador" Relationship="Self.FK_Utilizaçao_Permanente_Utilizador" FromRole="Utilizaçao_Permanente" ToRole="Utilizador" />
+          <NavigationProperty Name="Viatura" Relationship="Self.FK_Utilizaçao_Permanente_Viatura" FromRole="Utilizaçao_Permanente" ToRole="Viatura" />
+        </EntityType>
+        <EntityType Name="Utilizaçao_Temporaria">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="Int32" Nullable="false" />
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataInicio" Type="DateTime" Precision="0" />
+          <Property Name="DataFim" Type="DateTime" Precision="0" />
+          <Property Name="HoraInicio" Type="Time" Precision="7" />
+          <Property Name="HoraFim" Type="Time" Precision="7" />
+          <NavigationProperty Name="Utilizador" Relationship="Self.FK_Utilizaçao_Temporaria_Utilizador" FromRole="Utilizaçao_Temporaria" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="Id_Utilizador" />
+          </Key>
+          <Property Name="Id_Utilizador" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Cargo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Telefone" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="CC" Type="Int32" />
+          <Property Name="Morada" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="Localidade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Utilizaçao_Permanente" Relationship="Self.FK_Utilizaçao_Permanente_Utilizador" FromRole="Utilizador" ToRole="Utilizaçao_Permanente" />
+          <NavigationProperty Name="Utilizaçao_Temporaria" Relationship="Self.FK_Utilizaçao_Temporaria_Utilizador" FromRole="Utilizador" ToRole="Utilizaçao_Temporaria" />
+        </EntityType>
+        <EntityType Name="Viatura">
+          <Key>
+            <PropertyRef Name="Id_Viatura" />
+          </Key>
+          <Property Name="Id_Contrato" Type="Int32" Nullable="false" />
+          <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Marca" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Modelo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NºProcedimento" Type="Int32" />
+          <Property Name="PedidoCompra" Type="Int32" />
+          <Property Name="Combustivel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PreçoTotal" Type="Int32" />
+          <NavigationProperty Name="Contrato" Relationship="Self.FK_Viatura_Contrato" FromRole="Viatura" ToRole="Contrato" />
+          <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_Viatura" FromRole="Viatura" ToRole="Despesa" />
+          <NavigationProperty Name="Kilometros" Relationship="Self.FK_Kilometros_Viatura" FromRole="Viatura" ToRole="Kilometros" />
+          <NavigationProperty Name="Manutençao" Relationship="Self.FK_Manutençao_Viatura" FromRole="Viatura" ToRole="Manutençao" />
+          <NavigationProperty Name="Utilizaçao_Permanente" Relationship="Self.FK_Utilizaçao_Permanente_Viatura" FromRole="Viatura" ToRole="Utilizaçao_Permanente" />
+        </EntityType>
+        <Association Name="FK_Viatura_Contrato">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="1" />
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="Id_Contrato" />
+            </Principal>
+            <Dependent Role="Viatura">
+              <PropertyRef Name="Id_Contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Fornecedores">
+          <End Role="Fornecedores" Type="Self.Fornecedores" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fornecedores">
+              <PropertyRef Name="Id_Fornecedor" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Despesa_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Despesa" Type="Self.Despesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Despesa">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kilometros_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Kilometros" Type="Self.Kilometros" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Kilometros">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manutençao_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Manutençao">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao_Permanente_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Utilizaçao_Permanente" Type="Self.Utilizaçao_Permanente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizaçao_Permanente">
+              <PropertyRef Name="Id_Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao_Permanente_Viatura">
+          <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
+          <End Role="Utilizaçao_Permanente" Type="Self.Utilizaçao_Permanente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Viatura">
+              <PropertyRef Name="Id_Viatura" />
+            </Principal>
+            <Dependent Role="Utilizaçao_Permanente">
+              <PropertyRef Name="Id_Viatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizaçao_Temporaria_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Utilizaçao_Temporaria" Type="Self.Utilizaçao_Temporaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizaçao_Temporaria">
+              <PropertyRef Name="Id_Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gestão_de_Frota_de_AutomoveisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contrato" EntityType="Self.Contrato" />
+          <EntitySet Name="Despesa" EntityType="Self.Despesa" />
+          <EntitySet Name="Fornecedores" EntityType="Self.Fornecedores" />
+          <EntitySet Name="Kilometros" EntityType="Self.Kilometros" />
+          <EntitySet Name="Manutençao" EntityType="Self.Manutençao" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Utilizaçao_Permanente" EntityType="Self.Utilizaçao_Permanente" />
+          <EntitySet Name="Utilizaçao_Temporaria" EntityType="Self.Utilizaçao_Temporaria" />
+          <EntitySet Name="Utilizador" EntityType="Self.Utilizador" />
+          <EntitySet Name="Viatura" EntityType="Self.Viatura" />
+          <AssociationSet Name="FK_Viatura_Contrato" Association="Self.FK_Viatura_Contrato">
+            <End Role="Contrato" EntitySet="Contrato" />
+            <End Role="Viatura" EntitySet="Viatura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Fornecedores" Association="Self.FK_Despesa_Fornecedores">
+            <End Role="Fornecedores" EntitySet="Fornecedores" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Despesa_Viatura" Association="Self.FK_Despesa_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Despesa" EntitySet="Despesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kilometros_Viatura" Association="Self.FK_Kilometros_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Kilometros" EntitySet="Kilometros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manutençao_Viatura" Association="Self.FK_Manutençao_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Manutençao" EntitySet="Manutençao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao_Permanente_Utilizador" Association="Self.FK_Utilizaçao_Permanente_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizaçao_Permanente" EntitySet="Utilizaçao_Permanente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao_Permanente_Viatura" Association="Self.FK_Utilizaçao_Permanente_Viatura">
+            <End Role="Viatura" EntitySet="Viatura" />
+            <End Role="Utilizaçao_Permanente" EntitySet="Utilizaçao_Permanente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizaçao_Temporaria_Utilizador" Association="Self.FK_Utilizaçao_Temporaria_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizaçao_Temporaria" EntitySet="Utilizaçao_Temporaria" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Gestão_de_Frota_de_AutomoveisEntities">
+          <EntitySetMapping Name="Contrato">
+            <EntityTypeMapping TypeName="Model.Contrato">
+              <MappingFragment StoreEntitySet="Contrato">
+                <ScalarProperty Name="Id_Contrato" ColumnName="Id_Contrato" />
+                <ScalarProperty Name="NomeFornecedor" ColumnName="NomeFornecedor" />
+                <ScalarProperty Name="PedidoCompra" ColumnName="PedidoCompra" />
+                <ScalarProperty Name="NºProcedimento" ColumnName="NºProcedimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Despesa">
+            <EntityTypeMapping TypeName="Model.Despesa">
+              <MappingFragment StoreEntitySet="Despesa">
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="Id_Fornecedor" ColumnName="Id_Fornecedor" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="DataDespesa" ColumnName="DataDespesa" />
+                <ScalarProperty Name="Despesa1" ColumnName="Despesa" />
+                <ScalarProperty Name="NºFatura" ColumnName="NºFatura" />
+                <ScalarProperty Name="PedidoCompra" ColumnName="PedidoCompra" />
+                <ScalarProperty Name="Preço" ColumnName="Preço" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fornecedores">
+            <EntityTypeMapping TypeName="Model.Fornecedores">
+              <MappingFragment StoreEntitySet="Fornecedores">
+                <ScalarProperty Name="Id_Fornecedor" ColumnName="Id_Fornecedor" />
+                <ScalarProperty Name="NomeFornecedor" ColumnName="NomeFornecedor" />
+                <ScalarProperty Name="NIPC" ColumnName="NIPC" />
+                <ScalarProperty Name="Morada" ColumnName="Morada" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kilometros">
+            <EntityTypeMapping TypeName="Model.Kilometros">
+              <MappingFragment StoreEntitySet="Kilometros">
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="DataRegisto" ColumnName="DataRegisto" />
+                <ScalarProperty Name="Kilometros1" ColumnName="Kilometros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manutençao">
+            <EntityTypeMapping TypeName="Model.Manutençao">
+              <MappingFragment StoreEntitySet="Manutençao">
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="DataManutençao" ColumnName="DataManutençao" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Reparaçao" ColumnName="Reparaçao" />
+                <ScalarProperty Name="Fatura" ColumnName="Fatura" />
+                <ScalarProperty Name="Preço" ColumnName="Preço" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizaçao_Permanente">
+            <EntityTypeMapping TypeName="Model.Utilizaçao_Permanente">
+              <MappingFragment StoreEntitySet="Utilizaçao Permanente">
+                <ScalarProperty Name="Id_Utilizador" ColumnName="Id_Utilizador" />
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizaçao_Temporaria">
+            <EntityTypeMapping TypeName="Model.Utilizaçao_Temporaria">
+              <MappingFragment StoreEntitySet="Utilizaçao Temporaria">
+                <ScalarProperty Name="Id_Utilizador" ColumnName="Id_Utilizador" />
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizador">
+            <EntityTypeMapping TypeName="Model.Utilizador">
+              <MappingFragment StoreEntitySet="Utilizador">
+                <ScalarProperty Name="Id_Utilizador" ColumnName="Id_Utilizador" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="Morada" ColumnName="Morada" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Viatura">
+            <EntityTypeMapping TypeName="Model.Viatura">
+              <MappingFragment StoreEntitySet="Viatura">
+                <ScalarProperty Name="Id_Contrato" ColumnName="Id_Contrato" />
+                <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="NºProcedimento" ColumnName="NºProcedimento" />
+                <ScalarProperty Name="PedidoCompra" ColumnName="PedidoCompra" />
+                <ScalarProperty Name="Combustivel" ColumnName="Combustivel" />
+                <ScalarProperty Name="PreçoTotal" ColumnName="PreçoTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
