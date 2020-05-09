@@ -1,0 +1,50 @@
+﻿@model Exemplo.Models.Kilometros
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kilometros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRegisto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRegisto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometros1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometros1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viatura.Matricula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Viatura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

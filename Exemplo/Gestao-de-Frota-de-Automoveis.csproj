@@ -129,8 +129,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContratoController.cs" />
+    <Compile Include="Controllers\DespesaController.cs" />
+    <Compile Include="Controllers\FornecedoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KilometrosController.cs" />
+    <Compile Include="Controllers\ManutençaoController.cs" />
+    <Compile Include="Controllers\UPController.cs" />
+    <Compile Include="Controllers\UTController.cs" />
     <Compile Include="Controllers\UtilizadorController.cs" />
+    <Compile Include="Controllers\ViaturasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,6 +251,41 @@
     <Content Include="Views\Contrato\Details.cshtml" />
     <Content Include="Views\Contrato\Edit.cshtml" />
     <Content Include="Views\Contrato\Index.cshtml" />
+    <Content Include="Views\Despesa\Create.cshtml" />
+    <Content Include="Views\Despesa\Delete.cshtml" />
+    <Content Include="Views\Despesa\Details.cshtml" />
+    <Content Include="Views\Despesa\Edit.cshtml" />
+    <Content Include="Views\Despesa\Index.cshtml" />
+    <Content Include="Views\Fornecedores\Create.cshtml" />
+    <Content Include="Views\Fornecedores\Delete.cshtml" />
+    <Content Include="Views\Fornecedores\Details.cshtml" />
+    <Content Include="Views\Fornecedores\Edit.cshtml" />
+    <Content Include="Views\Fornecedores\Index.cshtml" />
+    <Content Include="Views\Kilometros\Create.cshtml" />
+    <Content Include="Views\Kilometros\Delete.cshtml" />
+    <Content Include="Views\Kilometros\Details.cshtml" />
+    <Content Include="Views\Kilometros\Edit.cshtml" />
+    <Content Include="Views\Kilometros\Index.cshtml" />
+    <Content Include="Views\Manutençao\Create.cshtml" />
+    <Content Include="Views\Manutençao\Delete.cshtml" />
+    <Content Include="Views\Manutençao\Details.cshtml" />
+    <Content Include="Views\Manutençao\Edit.cshtml" />
+    <Content Include="Views\Manutençao\Index.cshtml" />
+    <Content Include="Views\Viaturas\Create.cshtml" />
+    <Content Include="Views\Viaturas\Delete.cshtml" />
+    <Content Include="Views\Viaturas\Details.cshtml" />
+    <Content Include="Views\Viaturas\Edit.cshtml" />
+    <Content Include="Views\Viaturas\Index.cshtml" />
+    <Content Include="Views\UP\Create.cshtml" />
+    <Content Include="Views\UP\Delete.cshtml" />
+    <Content Include="Views\UP\Details.cshtml" />
+    <Content Include="Views\UP\Edit.cshtml" />
+    <Content Include="Views\UP\Index.cshtml" />
+    <Content Include="Views\UT\Create.cshtml" />
+    <Content Include="Views\UT\Delete.cshtml" />
+    <Content Include="Views\UT\Details.cshtml" />
+    <Content Include="Views\UT\Edit.cshtml" />
+    <Content Include="Views\UT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

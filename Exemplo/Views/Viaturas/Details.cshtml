@@ -1,0 +1,98 @@
+﻿@model Exemplo.Models.Viatura
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Viatura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NºProcedimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NºProcedimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Combustivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Combustivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreçoTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreçoTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contrato.NomeFornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrato.NomeFornecedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometros.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometros.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manutençao.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manutençao.Matricula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Viatura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Exemplo.Models.Despesa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDespesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Despesa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NºFatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PedidoCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preço)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornecedores.NomeFornecedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDespesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Despesa1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NºFatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PedidoCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preço)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fornecedores.NomeFornecedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Viatura.Matricula)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { IdViatura = item.Id_Viatura, IdFornecedor=item.Id_Fornecedor }) |
+            @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Apagar", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

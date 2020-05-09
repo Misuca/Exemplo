@@ -1,0 +1,58 @@
+﻿@model Exemplo.Models.Utilizaçao_Permanente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Utilizaçao_Permanente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viatura.Matricula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

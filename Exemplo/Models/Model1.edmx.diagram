@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="90d99267e96a4ef19a217afde28bff51" Name="Diagram1">
+      <Diagram DiagramId="90d99267e96a4ef19a217afde28bff51" Name="Diagram1" ZoomLevel="95">
         <EntityTypeShape EntityType="Model.Contrato" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Despesa" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Fornecedores" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Kilometros" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Manutençao" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Utilizaçao_Permanente" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Utilizaçao_Temporaria" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Utilizador" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Despesa" Width="1.5" PointX="7" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Fornecedores" Width="1.5" PointX="5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Kilometros" Width="1.5" PointX="5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Manutençao" Width="1.5" PointX="6.875" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="8.375" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Utilizaçao_Permanente" Width="1.5" PointX="8.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Utilizaçao_Temporaria" Width="1.5" PointX="10.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Utilizador" Width="1.5" PointX="9" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Viatura" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Viatura_Contrato" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Despesa_Fornecedores" ManuallyRouted="false" />

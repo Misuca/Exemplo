@@ -1,0 +1,82 @@
+﻿@model Exemplo.Models.Despesa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Despesa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDespesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDespesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Despesa1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Despesa1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NºFatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NºFatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preço)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preço)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornecedores.NomeFornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornecedores.NomeFornecedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viatura.Matricula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

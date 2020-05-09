@@ -1,0 +1,88 @@
+﻿@model Exemplo.Models.Despesa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Despesa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDespesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDespesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Despesa1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Despesa1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NºFatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NºFatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preço)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preço)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Fornecedores.NomeFornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornecedores.NomeFornecedor)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viatura.Matricula)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
