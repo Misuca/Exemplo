@@ -10,18 +10,18 @@ using Exemplo.Models;
 
 namespace Exemplo.Controllers
 {
-    public class ViaturasController : Controller
+    public class ViaturaController : Controller
     {
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
-        // GET: Viaturas
+        // GET: Viatura
         public ActionResult Index()
         {
             var viatura = db.Viatura.Include(v => v.Contrato).Include(v => v.Kilometros).Include(v => v.Manutençao);
             return View(viatura.ToList());
         }
 
-        // GET: Viaturas/Details/5
+        // GET: Viatura/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace Exemplo.Controllers
             return View(viatura);
         }
 
-        // GET: Viaturas/Create
+        // GET: Viatura/Create
         public ActionResult Create()
         {
             ViewBag.Id_Contrato = new SelectList(db.Contrato, "Id_Contrato", "NomeFornecedor");
@@ -45,7 +45,7 @@ namespace Exemplo.Controllers
             return View();
         }
 
-        // POST: Viaturas/Create
+        // POST: Viatura/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -65,7 +65,7 @@ namespace Exemplo.Controllers
             return View(viatura);
         }
 
-        // GET: Viaturas/Edit/5
+        // GET: Viatura/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace Exemplo.Controllers
             return View(viatura);
         }
 
-        // POST: Viaturas/Edit/5
+        // POST: Viatura/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -102,7 +102,7 @@ namespace Exemplo.Controllers
             return View(viatura);
         }
 
-        // GET: Viaturas/Delete/5
+        // GET: Viatura/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,7 +117,7 @@ namespace Exemplo.Controllers
             return View(viatura);
         }
 
-        // POST: Viaturas/Delete/5
+        // POST: Viatura/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

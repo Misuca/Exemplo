@@ -26,8 +26,8 @@ namespace Exemplo.Models
         public string Matricula { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public Nullable<int> NºProcedimento { get; set; }
-        public Nullable<int> PedidoCompra { get; set; }
+        public string NºProcedimento { get; set; }
+        public string PedidoCompra { get; set; }
         public string Combustivel { get; set; }
         public Nullable<int> PreçoTotal { get; set; }
     

@@ -64,13 +64,13 @@ namespace Exemplo.Controllers
         }
 
         // GET: Despesa/Edit/5
-        public ActionResult Edit(int? idViatura, int? idFornecedor)
+        public ActionResult Edit(int? id)
         {
-            if (idViatura == null || idFornecedor == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Despesa despesa = db.Despesa.Find(idViatura,idFornecedor);
+            Despesa despesa = db.Despesa.Find(id);
             if (despesa == null)
             {
                 return HttpNotFound();

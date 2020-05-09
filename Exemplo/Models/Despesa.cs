@@ -17,11 +17,11 @@ namespace Exemplo.Models
         public int Id_Viatura { get; set; }
         public int Id_Fornecedor { get; set; }
         public string Matricula { get; set; }
-        public string DataDespesa { get; set; }
-        public string Despesa1 { get; set; }
+        public Nullable<System.DateTime> DataDespesa { get; set; }
         public string NºFatura { get; set; }
         public string PedidoCompra { get; set; }
         public Nullable<int> Preço { get; set; }
+        public string NomeDespesa { get; set; }
     
         public virtual Fornecedores Fornecedores { get; set; }
         public virtual Viatura Viatura { get; set; }

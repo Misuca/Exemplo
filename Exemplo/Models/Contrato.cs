@@ -22,8 +22,8 @@ namespace Exemplo.Models
     
         public int Id_Contrato { get; set; }
         public string NomeFornecedor { get; set; }
-        public Nullable<int> PedidoCompra { get; set; }
-        public Nullable<int> NºProcedimento { get; set; }
+        public string PedidoCompra { get; set; }
+        public string NºProcedimento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Viatura> Viatura { get; set; }

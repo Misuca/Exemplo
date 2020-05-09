@@ -26,7 +26,7 @@ namespace Exemplo.Models
         public string Departamento { get; set; }
         public string Cargo { get; set; }
         public string Telefone { get; set; }
-        public Nullable<int> CC { get; set; }
+        public string CC { get; set; }
         public string Morada { get; set; }
         public string CodigoPostal { get; set; }
         public string Localidade { get; set; }

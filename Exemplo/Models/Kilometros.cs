@@ -16,8 +16,8 @@ namespace Exemplo.Models
     {
         public int Id_Viatura { get; set; }
         public string Matricula { get; set; }
-        public string DataRegisto { get; set; }
-        public string Kilometros1 { get; set; }
+        public Nullable<System.DateTime> DataRegisto { get; set; }
+        public Nullable<int> QuantidadeKm { get; set; }
     
         public virtual Viatura Viatura { get; set; }
     }

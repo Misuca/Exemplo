@@ -137,7 +137,7 @@
     <Compile Include="Controllers\UPController.cs" />
     <Compile Include="Controllers\UTController.cs" />
     <Compile Include="Controllers\UtilizadorController.cs" />
-    <Compile Include="Controllers\ViaturasController.cs" />
+    <Compile Include="Controllers\ViaturaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,11 +241,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Utilizador\Create.cshtml" />
-    <Content Include="Views\Utilizador\Delete.cshtml" />
-    <Content Include="Views\Utilizador\Details.cshtml" />
-    <Content Include="Views\Utilizador\Edit.cshtml" />
-    <Content Include="Views\Utilizador\Index.cshtml" />
     <Content Include="Views\Contrato\Create.cshtml" />
     <Content Include="Views\Contrato\Delete.cshtml" />
     <Content Include="Views\Contrato\Details.cshtml" />
@@ -271,11 +266,6 @@
     <Content Include="Views\Manutençao\Details.cshtml" />
     <Content Include="Views\Manutençao\Edit.cshtml" />
     <Content Include="Views\Manutençao\Index.cshtml" />
-    <Content Include="Views\Viaturas\Create.cshtml" />
-    <Content Include="Views\Viaturas\Delete.cshtml" />
-    <Content Include="Views\Viaturas\Details.cshtml" />
-    <Content Include="Views\Viaturas\Edit.cshtml" />
-    <Content Include="Views\Viaturas\Index.cshtml" />
     <Content Include="Views\UP\Create.cshtml" />
     <Content Include="Views\UP\Delete.cshtml" />
     <Content Include="Views\UP\Details.cshtml" />
@@ -286,6 +276,16 @@
     <Content Include="Views\UT\Details.cshtml" />
     <Content Include="Views\UT\Edit.cshtml" />
     <Content Include="Views\UT\Index.cshtml" />
+    <Content Include="Views\Utilizador\Create.cshtml" />
+    <Content Include="Views\Utilizador\Delete.cshtml" />
+    <Content Include="Views\Utilizador\Details.cshtml" />
+    <Content Include="Views\Utilizador\Edit.cshtml" />
+    <Content Include="Views\Utilizador\Index.cshtml" />
+    <Content Include="Views\Viatura\Create.cshtml" />
+    <Content Include="Views\Viatura\Delete.cshtml" />
+    <Content Include="Views\Viatura\Details.cshtml" />
+    <Content Include="Views\Viatura\Edit.cshtml" />
+    <Content Include="Views\Viatura\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
