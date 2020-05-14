@@ -40,6 +40,7 @@ namespace Exemplo.Controllers
         public ActionResult Create()
         {
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Viatura,Matricula,DataRegisto,Kilometros1")] Kilometros kilometros)
+        public ActionResult Create([Bind(Include = "Id_Viatura,Matricula,DataRegisto,QuantidadeKm")] Kilometros kilometros)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace Exemplo.Controllers
             }
 
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
+            ViewBag.Id_Viatura = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
             return View(kilometros);
         }
 
@@ -74,6 +76,7 @@ namespace Exemplo.Controllers
                 return HttpNotFound();
             }
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
             return View(kilometros);
         }
 
@@ -91,6 +94,7 @@ namespace Exemplo.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
             return View(kilometros);
         }
 

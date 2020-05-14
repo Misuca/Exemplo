@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Utilizador.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura }) |
+            @Html.ActionLink("Details", "Details", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura }) |
+            @Html.ActionLink("Delete", "Delete", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura })
         </td>
     </tr>
 }

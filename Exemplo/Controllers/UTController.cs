@@ -22,13 +22,13 @@ namespace Exemplo.Controllers
         }
 
         // GET: UT/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? idUtilizador, int? idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(id);
+            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(idUtilizador, idViatura);
             if (utilizaçao_Temporaria == null)
             {
                 return HttpNotFound();
@@ -40,6 +40,7 @@ namespace Exemplo.Controllers
         public ActionResult Create()
         {
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome");
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -58,22 +59,24 @@ namespace Exemplo.Controllers
             }
 
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Temporaria.Id_Utilizador);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula" , utilizaçao_Temporaria.Matricula);
             return View(utilizaçao_Temporaria);
         }
 
         // GET: UT/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? idUtilizador , int? idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(id);
+            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(idUtilizador,idViatura);
             if (utilizaçao_Temporaria == null)
             {
                 return HttpNotFound();
             }
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Temporaria.Id_Utilizador);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", utilizaçao_Temporaria.Matricula);
             return View(utilizaçao_Temporaria);
         }
 
@@ -91,17 +94,18 @@ namespace Exemplo.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Temporaria.Id_Utilizador);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", utilizaçao_Temporaria.Matricula);
             return View(utilizaçao_Temporaria);
         }
 
         // GET: UT/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? idUtilizador , int? idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(id);
+            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(idUtilizador , idViatura);
             if (utilizaçao_Temporaria == null)
             {
                 return HttpNotFound();
@@ -112,9 +116,9 @@ namespace Exemplo.Controllers
         // POST: UT/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? idUtilizador , int? idViatura)
         {
-            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(id);
+            Utilizaçao_Temporaria utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Find(idUtilizador , idViatura);
             db.Utilizaçao_Temporaria.Remove(utilizaçao_Temporaria);
             db.SaveChanges();
             return RedirectToAction("Index");

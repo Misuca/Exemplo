@@ -22,13 +22,13 @@ namespace Exemplo.Controllers
         }
 
         // GET: UP/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? idUtilizador, int? idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(id);
+            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(idUtilizador, idViatura);
             if (utilizaçao_Permanente == null)
             {
                 return HttpNotFound();
@@ -41,6 +41,7 @@ namespace Exemplo.Controllers
         {
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome");
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -60,23 +61,25 @@ namespace Exemplo.Controllers
 
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Permanente.Id_Utilizador);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", utilizaçao_Permanente.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", utilizaçao_Permanente.Matricula);
             return View(utilizaçao_Permanente);
         }
 
         // GET: UP/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? idUtilizador , int? idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(id);
+            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(idUtilizador , idViatura);
             if (utilizaçao_Permanente == null)
             {
                 return HttpNotFound();
             }
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Permanente.Id_Utilizador);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", utilizaçao_Permanente.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", utilizaçao_Permanente.Matricula);
             return View(utilizaçao_Permanente);
         }
 
@@ -95,17 +98,18 @@ namespace Exemplo.Controllers
             }
             ViewBag.Id_Utilizador = new SelectList(db.Utilizador, "Id_Utilizador", "Nome", utilizaçao_Permanente.Id_Utilizador);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", utilizaçao_Permanente.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", utilizaçao_Permanente.Matricula);
             return View(utilizaçao_Permanente);
         }
 
         // GET: UP/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? idUtilizador, int?idViatura)
         {
-            if (id == null)
+            if (idUtilizador == null || idViatura == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(id);
+            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(idUtilizador , idViatura);
             if (utilizaçao_Permanente == null)
             {
                 return HttpNotFound();
@@ -116,9 +120,9 @@ namespace Exemplo.Controllers
         // POST: UP/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? idUtilizador , int?idViatura)
         {
-            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(id);
+            Utilizaçao_Permanente utilizaçao_Permanente = db.Utilizaçao_Permanente.Find(idUtilizador,idViatura);
             db.Utilizaçao_Permanente.Remove(utilizaçao_Permanente);
             db.SaveChanges();
             return RedirectToAction("Index");
