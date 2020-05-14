@@ -15,9 +15,10 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Fornecedores
-        public ActionResult Index()
+        public ActionResult Index(string localidade = "")
         {
-            return View(db.Fornecedores.ToList());
+            var fornecedores = db.Fornecedores.Where((fornecedor) => fornecedor.Localidade.Contains(localidade));
+            return View(fornecedores.ToList());
         }
 
         // GET: Fornecedores/Details/5

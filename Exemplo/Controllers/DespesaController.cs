@@ -22,13 +22,13 @@ namespace Exemplo.Controllers
         }
 
         // GET: Despesa/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? idViatura , int? idFornecedor)
         {
-            if (id == null)
+            if (idViatura == null || idFornecedor == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Despesa despesa = db.Despesa.Find(id);
+            Despesa despesa = db.Despesa.Find(idViatura, idFornecedor);
             if (despesa == null)
             {
                 return HttpNotFound();
@@ -41,6 +41,7 @@ namespace Exemplo.Controllers
         {
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor");
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Viatura,Id_Fornecedor,Matricula,DataDespesa,Despesa1,NºFatura,PedidoCompra,Preço")] Despesa despesa)
+        public ActionResult Create([Bind(Include = "Id_Viatura,Id_Fornecedor,Matricula,DataDespesa,NºFatura,PedidoCompra,Preço,NomeDespesa")] Despesa despesa)
         {
             if (ModelState.IsValid)
             {
@@ -60,17 +61,18 @@ namespace Exemplo.Controllers
 
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor", despesa.Id_Fornecedor);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", despesa.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", despesa.Matricula);
             return View(despesa);
         }
 
         // GET: Despesa/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? idViatura, int? idFornecedor)
         {
-            if (id == null)
+            if (idViatura == null || idFornecedor == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Despesa despesa = db.Despesa.Find(id);
+            Despesa despesa = db.Despesa.Find(idViatura, idFornecedor);
             if (despesa == null)
             {
                 return HttpNotFound();
@@ -85,7 +87,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Viatura,Id_Fornecedor,Matricula,DataDespesa,Despesa1,NºFatura,PedidoCompra,Preço")] Despesa despesa)
+        public ActionResult Edit([Bind(Include = "Id_Viatura,Id_Fornecedor,Matricula,DataDespesa,NºFatura,PedidoCompra,Preço,NomeDespesa")] Despesa despesa)
         {
             if (ModelState.IsValid)
             {
@@ -95,17 +97,18 @@ namespace Exemplo.Controllers
             }
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor", despesa.Id_Fornecedor);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", despesa.Id_Viatura);
+            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", despesa.Matricula);
             return View(despesa);
         }
 
         // GET: Despesa/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? idViatura , int? idFornecedor)
         {
-            if (id == null)
+            if (idViatura == null || idFornecedor == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Despesa despesa = db.Despesa.Find(id);
+            Despesa despesa = db.Despesa.Find(idViatura,idFornecedor);
             if (despesa == null)
             {
                 return HttpNotFound();
@@ -116,9 +119,9 @@ namespace Exemplo.Controllers
         // POST: Despesa/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? idViatura, int? idFornecedor)
         {
-            Despesa despesa = db.Despesa.Find(id);
+            Despesa despesa = db.Despesa.Find(idViatura , idFornecedor);
             db.Despesa.Remove(despesa);
             db.SaveChanges();
             return RedirectToAction("Index");

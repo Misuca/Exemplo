@@ -18,9 +18,6 @@
             @Html.DisplayNameFor(model => model.DataDespesa)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Despesa1)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.NºFatura)
         </th>
         <th>
@@ -28,6 +25,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Preço)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDespesa)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Fornecedores.NomeFornecedor)
@@ -47,9 +47,6 @@
             @Html.DisplayFor(modelItem => item.DataDespesa)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Despesa1)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.NºFatura)
         </td>
         <td>
@@ -59,15 +56,18 @@
             @Html.DisplayFor(modelItem => item.Preço)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.NomeDespesa)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Fornecedores.NomeFornecedor)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Viatura.Matricula)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor }) |
+            @Html.ActionLink("Details", "Details", new { idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor }) |
+            @Html.ActionLink("Delete", "Delete", new {idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor})
         </td>
     </tr>
 }

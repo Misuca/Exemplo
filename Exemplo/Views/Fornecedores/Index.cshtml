@@ -9,6 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+    <form class="col-12" action="/Fornecedores" method="get">
+        <input class="form-control col-10" type="text" name="localidade" value="" />
+        <button class="btn btn-primary col-2" type="submit">Procurar</button>
+    </form>
+
 <table class="table">
     <tr>
         <th>

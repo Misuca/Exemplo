@@ -30,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                <input class="form-control" type="date" name="DataInicio" value="@Model.DataInicio" />
                 @Html.ValidationMessageFor(model => model.DataInicio, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -35,12 +35,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Contrato.NomeFornecedor)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kilometros.Matricula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Manutençao.Matricula)
-        </th>
         <th></th>
     </tr>
 
@@ -69,12 +63,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Contrato.NomeFornecedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kilometros.Matricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Manutençao.Matricula)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id_Viatura }) |
