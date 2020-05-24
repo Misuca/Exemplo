@@ -73,9 +73,9 @@
         </EntityType>
         <EntityType Name="Utilizaçao Permanente">
           <Key>
-            <PropertyRef Name="Id_Utilizador" />
-            <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_UtilizacaoPermanente" />
           </Key>
+          <Property Name="Id_UtilizacaoPermanente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Utilizador" Type="int" Nullable="false" />
           <Property Name="Id_Viatura" Type="int" Nullable="false" />
           <Property Name="Matricula" Type="nvarchar" MaxLength="8" />
@@ -343,6 +343,7 @@
           <Key>
             <PropertyRef Name="Id_Utilizador" />
             <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_UtilizacaoPermanente" />
           </Key>
           <Property Name="Id_Utilizador" Type="Int32" Nullable="false" />
           <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
@@ -351,6 +352,7 @@
           <Property Name="DataFim" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Utilizador" Relationship="Self.FK_Utilizaçao_Permanente_Utilizador" FromRole="Utilizaçao_Permanente" ToRole="Utilizador" />
           <NavigationProperty Name="Viatura" Relationship="Self.FK_Utilizaçao_Permanente_Viatura" FromRole="Utilizaçao_Permanente" ToRole="Viatura" />
+          <Property Name="Id_UtilizacaoPermanente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Utilizaçao_Temporaria">
           <Key>
@@ -621,6 +623,7 @@
           <EntitySetMapping Name="Utilizaçao_Permanente">
             <EntityTypeMapping TypeName="Model.Utilizaçao_Permanente">
               <MappingFragment StoreEntitySet="Utilizaçao Permanente">
+                <ScalarProperty Name="Id_UtilizacaoPermanente" ColumnName="Id_UtilizacaoPermanente" />
                 <ScalarProperty Name="Id_Utilizador" ColumnName="Id_Utilizador" />
                 <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />

@@ -15,9 +15,9 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Fornecedores
-        public ActionResult Index(string localidade = "")
+        public ActionResult Index(string pesquisa = "")
         {
-            var fornecedores = db.Fornecedores.Where((fornecedor) => fornecedor.Localidade.Contains(localidade));
+            var fornecedores = db.Fornecedores.Where((fornecedor) => fornecedor.Localidade.Contains(pesquisa) || fornecedor.NomeFornecedor.Contains(pesquisa));
             return View(fornecedores.ToList());
         }
 

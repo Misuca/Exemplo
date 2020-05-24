@@ -10,10 +10,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </th>
+    <tr>    
         <th>
             @Html.DisplayNameFor(model => model.DataRegisto)
         </th>
@@ -28,9 +25,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataRegisto)
         </td>

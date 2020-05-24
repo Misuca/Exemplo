@@ -10,10 +10,14 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-    <form class="col-12" action="/Fornecedores" method="get">
-        <input class="form-control col-10" type="text" name="localidade" value="" />
-        <button class="btn btn-primary col-2" type="submit">Procurar</button>
-    </form>
+<form class="col-12" action="/Fornecedores" method="get">
+    <div class="form-group">
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="pesquisa" value="" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
+</form>
 
 <table class="table">
     <tr>

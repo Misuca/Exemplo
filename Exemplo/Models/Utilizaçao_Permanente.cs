@@ -19,6 +19,7 @@ namespace Exemplo.Models
         public string Matricula { get; set; }
         public Nullable<System.DateTime> DataInicio { get; set; }
         public Nullable<System.DateTime> DataFim { get; set; }
+        public int Id_UtilizacaoPermanente { get; set; }
     
         public virtual Utilizador Utilizador { get; set; }
         public virtual Viatura Viatura { get; set; }
