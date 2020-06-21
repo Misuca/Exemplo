@@ -11,17 +11,20 @@ namespace Exemplo.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Utilizaçao_Temporaria
     {
         public int Id_Utilizador { get; set; }
+        [DisplayName("Viatura")]
         public int Id_Viatura { get; set; }
-        public string Matricula { get; set; }
         public Nullable<System.DateTime> DataInicio { get; set; }
         public Nullable<System.DateTime> DataFim { get; set; }
         public Nullable<System.TimeSpan> HoraInicio { get; set; }
         public Nullable<System.TimeSpan> HoraFim { get; set; }
+        public int Id_UtilizacaoTemporaria { get; set; }
     
         public virtual Utilizador Utilizador { get; set; }
+        public virtual Viatura Viatura { get; set; }
     }
 }

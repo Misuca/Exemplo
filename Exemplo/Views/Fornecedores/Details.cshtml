@@ -69,6 +69,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Fornecedor }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-primary" href="@Url.Action("Edit", new {  id_Fornecedor = Model.Id_Fornecedor})"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>
+

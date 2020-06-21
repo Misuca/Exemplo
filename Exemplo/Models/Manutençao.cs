@@ -16,7 +16,6 @@ namespace Exemplo.Models
     {
         public int Id_Viatura { get; set; }
         public Nullable<System.DateTime> DataManutençao { get; set; }
-        public string Matricula { get; set; }
         public string Reparaçao { get; set; }
         public string Fatura { get; set; }
         public Nullable<int> Preço { get; set; }

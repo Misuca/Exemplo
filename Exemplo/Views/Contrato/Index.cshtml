@@ -5,10 +5,19 @@
 }
 
 <h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
+
+<form class="col-12" action="/Contrato" method="get">
+    <div class="form-group">
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="pesquisa" value="" />
+            <button class="btn btn-primary" type="submit">Procurar</button>
+        </div>
+    </div>
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -24,22 +33,22 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeFornecedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PedidoCompra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NºProcedimento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Contrato }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id_Contrato }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Contrato })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NomeFornecedor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PedidoCompra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NºProcedimento)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.Id_Contrato})"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Details", new { id = item.Id_Contrato})"><span class="glyphicon glyphicon-search"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Delete", new { id = item.Id_Contrato})"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+</tr>
 }
 
 </table>

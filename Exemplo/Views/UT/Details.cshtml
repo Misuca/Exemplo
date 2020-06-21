@@ -7,16 +7,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Utilizaçao_Temporaria</h4>
+    <h4>Utilizaçao Temporaria</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Matricula)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.DataInicio)
@@ -58,9 +51,17 @@
             @Html.DisplayFor(model => model.Utilizador.Nome)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viatura.Matricula)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-primary" href="@Url.Action("Edit", new {  id_UT = Model.Id_UtilizacaoTemporaria })"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>
+

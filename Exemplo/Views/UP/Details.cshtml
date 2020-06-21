@@ -7,16 +7,10 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Utilizaçao_Permanente</h4>
+    <h4>Utilizaçao Permanente</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Matricula)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.DataInicio)
@@ -35,14 +29,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Utilizador.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Utilizador.Nome)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </dt>
 
@@ -53,6 +39,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UP = Model.Id_UtilizacaoPermanente })"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>

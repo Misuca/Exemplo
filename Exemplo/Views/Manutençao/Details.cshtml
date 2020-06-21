@@ -19,14 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Matricula)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Reparaçao)
         </dt>
 
@@ -61,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Viatura }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-primary" href="@Url.Action("Edit", new {  idViatura = Model.Id_Viatura})"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>

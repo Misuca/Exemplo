@@ -15,10 +15,10 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Despesa
-        public ActionResult Index()
+        public ActionResult Index(string pesquisa = "")
         {
-            var despesa = db.Despesa.Include(d => d.Fornecedores).Include(d => d.Viatura);
-            return View(despesa.ToList());
+            var despesas = db.Despesa.Where((despesa) => despesa.NomeDespesa.Contains(pesquisa)||despesa.Viatura.Matricula.Contains(pesquisa));
+            return View(despesas.ToList());
         }
 
         // GET: Despesa/Details/5
@@ -41,7 +41,6 @@ namespace Exemplo.Controllers
         {
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor");
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -61,7 +60,6 @@ namespace Exemplo.Controllers
 
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor", despesa.Id_Fornecedor);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", despesa.Id_Viatura);
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", despesa.Matricula);
             return View(despesa);
         }
 
@@ -97,7 +95,6 @@ namespace Exemplo.Controllers
             }
             ViewBag.Id_Fornecedor = new SelectList(db.Fornecedores, "Id_Fornecedor", "NomeFornecedor", despesa.Id_Fornecedor);
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", despesa.Id_Viatura);
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", despesa.Matricula);
             return View(despesa);
         }
 

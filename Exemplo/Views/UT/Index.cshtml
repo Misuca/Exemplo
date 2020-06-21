@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Matricula)
+            @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataInicio)
@@ -33,31 +33,31 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataFim)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraFim)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura }) |
-            @Html.ActionLink("Details", "Details", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura }) |
-            @Html.ActionLink("Delete", "Delete", new { idUtilizador=item.Id_Utilizador , idViatura = item.Id_Viatura })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Viatura.Matricula)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataInicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataFim)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HoraInicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HoraFim)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UT = item.Id_UtilizacaoTemporaria})"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Details", new { id_UT = item.Id_UtilizacaoTemporaria})"><span class="glyphicon glyphicon-search"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Delete", new {id_UT = item.Id_UtilizacaoTemporaria})"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+</tr>
 }
 
 </table>

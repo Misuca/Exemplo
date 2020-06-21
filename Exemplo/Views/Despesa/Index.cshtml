@@ -7,8 +7,18 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
+
+<form class="col-12" action="/Despesa" method="get">
+    <div class="form-group">
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="pesquisa" value="" />
+            <button class="btn btn-primary" type="submit">Procurar</button>
+        </div>
+    </div>
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -27,43 +37,37 @@
             @Html.DisplayNameFor(model => model.NomeDespesa)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fornecedores.NomeFornecedor)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataDespesa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NºFatura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PedidoCompra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Preço)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeDespesa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fornecedores.NomeFornecedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Viatura.Matricula)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor }) |
-            @Html.ActionLink("Details", "Details", new { idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor }) |
-            @Html.ActionLink("Delete", "Delete", new {idViatura=item.Id_Viatura, idFornecedor=item.Id_Fornecedor})
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataDespesa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NºFatura)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PedidoCompra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Preço)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NomeDespesa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Viatura.Matricula)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Details", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-search"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Delete", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+</tr>
 }
 
 </table>

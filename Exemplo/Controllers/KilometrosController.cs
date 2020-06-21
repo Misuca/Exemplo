@@ -40,7 +40,6 @@ namespace Exemplo.Controllers
         public ActionResult Create()
         {
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula");
             return View();
         }
 
@@ -59,7 +58,6 @@ namespace Exemplo.Controllers
             }
 
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
-            ViewBag.Id_Viatura = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
             return View(kilometros);
         }
 
@@ -76,7 +74,7 @@ namespace Exemplo.Controllers
                 return HttpNotFound();
             }
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
+
             return View(kilometros);
         }
 
@@ -94,7 +92,7 @@ namespace Exemplo.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
-            ViewBag.Matricula = new SelectList(db.Viatura, "Matricula", "Matricula", kilometros.Matricula);
+
             return View(kilometros);
         }
 

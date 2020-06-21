@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Contrato }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.Id_Contrato})"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>

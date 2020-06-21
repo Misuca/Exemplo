@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="90d99267e96a4ef19a217afde28bff51" Name="Diagram1" ZoomLevel="95">
+      <Diagram DiagramId="90d99267e96a4ef19a217afde28bff51" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="Model.Contrato" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Despesa" Width="1.5" PointX="7" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Fornecedores" Width="1.5" PointX="5" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Kilometros" Width="1.5" PointX="5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Kilometros" Width="1.5" PointX="5.125" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Manutençao" Width="1.5" PointX="6.875" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="8.375" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Utilizaçao_Permanente" Width="1.5" PointX="8.5" PointY="7.25" IsExpanded="true" />
@@ -23,6 +23,7 @@
         <AssociationConnector Association="Model.FK_Utilizaçao_Permanente_Utilizador" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Utilizaçao_Permanente_Viatura" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Utilizaçao_Temporaria_Utilizador" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Utilizaçao_Temporaria_Viatura" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

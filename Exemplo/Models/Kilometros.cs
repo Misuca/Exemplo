@@ -15,9 +15,9 @@ namespace Exemplo.Models
     public partial class Kilometros
     {
         public int Id_Viatura { get; set; }
-        public string Matricula { get; set; }
         public Nullable<System.DateTime> DataRegisto { get; set; }
         public Nullable<int> QuantidadeKm { get; set; }
+        public int Id_Kilometros { get; set; }
     
         public virtual Viatura Viatura { get; set; }
     }

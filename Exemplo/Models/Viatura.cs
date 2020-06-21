@@ -18,7 +18,9 @@ namespace Exemplo.Models
         public Viatura()
         {
             this.Despesa = new HashSet<Despesa>();
+            this.Kilometros = new HashSet<Kilometros>();
             this.Utilizaçao_Permanente = new HashSet<Utilizaçao_Permanente>();
+            this.Utilizaçao_Temporaria = new HashSet<Utilizaçao_Temporaria>();
         }
     
         public int Id_Contrato { get; set; }
@@ -34,9 +36,12 @@ namespace Exemplo.Models
         public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Despesa> Despesa { get; set; }
-        public virtual Kilometros Kilometros { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kilometros> Kilometros { get; set; }
         public virtual Manutençao Manutençao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Utilizaçao_Permanente> Utilizaçao_Permanente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Utilizaçao_Temporaria> Utilizaçao_Temporaria { get; set; }
     }
 }

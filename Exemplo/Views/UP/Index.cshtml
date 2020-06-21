@@ -7,22 +7,17 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.DataInicio)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataFim)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Utilizador.Nome)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </th>
@@ -32,24 +27,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DataInicio)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataFim)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Viatura.Matricula)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  idUtilizador=item.Id_Utilizador , idViatura=item.Id_Viatura }) |
-            @Html.ActionLink("Details", "Details", new { idUtilizador=item.Id_Utilizador , idViatura=item.Id_Viatura }) |
-            @Html.ActionLink("Delete", "Delete", new {  idUtilizador=item.Id_Utilizador , idViatura=item.Id_Viatura })
+            <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-primary" href="@Url.Action("Details", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-search"></span></a>
+            <a class="btn btn-primary" href="@Url.Action("Delete", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-trash"></span></a>
         </td>
     </tr>
 }

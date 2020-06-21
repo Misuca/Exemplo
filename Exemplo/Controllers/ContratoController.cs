@@ -15,9 +15,10 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Contrato
-        public ActionResult Index()
+       public ActionResult Index(string pesquisa = "")
         {
-            return View(db.Contrato.ToList());
+            var contratos = db.Contrato.Where((contrato) => contrato.NomeFornecedor.Contains(pesquisa));
+            return View(contratos.ToList());
         }
 
         // GET: Contrato/Details/5
@@ -46,7 +47,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Contrato,NomeFornecedor,PedidoCompra,NºProcedimento")] Contrato contrato)
+        public ActionResult Create([Bind(Include = "NomeFornecedor,PedidoCompra,NºProcedimento")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {

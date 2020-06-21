@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Gestão de Frota de Automóveis</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,15 +20,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Utilizador", "Index", "Utilizador")</li>
-                    <li>@Html.ActionLink("Contrato", "Index", "Contrato")</li>
-                    <li>@Html.ActionLink("Despesa", "Index", "Despesa")</li>
+                    <li>@Html.ActionLink("Utilizadores", "Index", "Utilizador")</li>
+                    <li>@Html.ActionLink("Contratos", "Index", "Contrato")</li>
+                    <li>@Html.ActionLink("Despesas", "Index", "Despesa")</li>
                     <li>@Html.ActionLink("Fornecedores", "Index", "Fornecedores")</li>
-                    <li>@Html.ActionLink("Kilometros", "Index", "Kilometros")</li>
-                    <li>@Html.ActionLink("Manutençao", "Index", "Manutençao")</li>
+                    <li>@Html.ActionLink("Quilómetros", "Index", "Kilometros")</li>
+                    <li>@Html.ActionLink("Manutenção", "Index", "Manutençao")</li>
                     <li>@Html.ActionLink("Utilização Permanente", "Index", "UP")</li>
-                    <li>@Html.ActionLink("Utilização Temporaria", "Index", "UT")</li>
-                    <li>@Html.ActionLink("Viatura", "Index", "Viatura")</li>
+                    <li>@Html.ActionLink("Utilização Temporária", "Index", "UT")</li>
+                    <li>@Html.ActionLink("Viaturas", "Index", "Viatura")</li>
                 </ul>
             </div>
         </div>
@@ -37,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Miguel Gomes</p>
+            <p>&copy; @DateTime.Now.Year - miguelg2001@hotmail.com</p>
         </footer>
     </div>
 
