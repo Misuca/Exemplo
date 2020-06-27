@@ -4,12 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Utilização Permanente</h2>
 
 <p>
     <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
+
+<form class="form-inline" action="/UP" method="get" style="margin-bottom: 10px">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Pesquisar..." name="pesquisa">
+    </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -21,26 +29,31 @@
         <th>
             @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataFim)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Viatura.Matricula)
-        </td>
-        <td>
-            <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-primary" href="@Url.Action("Details", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-search"></span></a>
-            <a class="btn btn-primary" href="@Url.Action("Delete", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-trash"></span></a>
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataInicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataFim)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Viatura.Matricula)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+    </td>
+    <td>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Details", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-search"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Delete", new { id_UP =item.Id_UtilizacaoPermanente})"><span class="glyphicon glyphicon-trash"></span></a>
+    </td>
+</tr>
 }
 
 </table>

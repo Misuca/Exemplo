@@ -15,10 +15,11 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Viatura
-        public ActionResult Index()
+        public ActionResult Index(string pesquisa = "")
         {
-            var viatura = db.Viatura.Include(v => v.Contrato).Include(v => v.Kilometros).Include(v => v.Manutençao);
-            return View(viatura.ToList());
+            var viaturas = db.Viatura.Where((viatura) => viatura.Matricula.Contains(pesquisa) || viatura.Marca.Contains(pesquisa) || viatura.Modelo.Contains(pesquisa)
+            || viatura.Contrato.NºProcedimento.Contains(pesquisa) || viatura.Contrato.PedidoCompra.Contains(pesquisa) || viatura.Combustivel.Contains(pesquisa));
+            return View(viaturas.ToList());
         }
 
         // GET: Viatura/Details/5
@@ -39,9 +40,9 @@ namespace Exemplo.Controllers
         // GET: Viatura/Create
         public ActionResult Create()
         {
-            ViewBag.Id_Contrato = new SelectList(db.Contrato, "Id_Contrato", "NomeFornecedor");
-            ViewBag.Id_Viatura = new SelectList(db.Kilometros, "Id_Viatura", "Matricula");
-            ViewBag.Id_Viatura = new SelectList(db.Manutençao, "Id_Viatura", "Matricula");
+           
+            ViewBag.NºProcedimento = new SelectList(db.Contrato, "Id_Contrato", "NºProcedimento");
+            ViewBag.PedidoCompra = new SelectList(db.Contrato, "Id_Contrato", "PedidoCompra");
             return View();
         }
 
@@ -59,9 +60,10 @@ namespace Exemplo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id_Contrato = new SelectList(db.Contrato, "Id_Contrato", "NomeFornecedor", viatura.Id_Contrato);
-            ViewBag.Id_Viatura = new SelectList(db.Kilometros, "Id_Viatura", "Matricula", viatura.Id_Viatura);
-            ViewBag.Id_Viatura = new SelectList(db.Manutençao, "Id_Viatura", "Matricula", viatura.Id_Viatura);
+            
+            ViewBag.NºProcedimento = new SelectList(db.Contrato, "Id_Contrato", "NºProcedimento", viatura.Id_Contrato);
+            ViewBag.PedidoCompra = new SelectList(db.Contrato, "Id_Contrato", "PedidoCompra", viatura.Id_Contrato);
+          
             return View(viatura);
         }
 
@@ -77,9 +79,9 @@ namespace Exemplo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id_Contrato = new SelectList(db.Contrato, "Id_Contrato", "NomeFornecedor", viatura.Id_Contrato);
-            ViewBag.Id_Viatura = new SelectList(db.Kilometros, "Id_Viatura", "Matricula", viatura.Id_Viatura);
-            ViewBag.Id_Viatura = new SelectList(db.Manutençao, "Id_Viatura", "Matricula", viatura.Id_Viatura);
+            
+            ViewBag.NºProcedimento = new SelectList(db.Contrato, "Id_Contrato", "NºProcedimento", viatura.Id_Contrato);
+            ViewBag.PedidoCompra = new SelectList(db.Contrato, "Id_Contrato", "PedidoCompra", viatura.Id_Contrato);
             return View(viatura);
         }
 
@@ -96,9 +98,9 @@ namespace Exemplo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id_Contrato = new SelectList(db.Contrato, "Id_Contrato", "NomeFornecedor", viatura.Id_Contrato);
-            ViewBag.Id_Viatura = new SelectList(db.Kilometros, "Id_Viatura", "Matricula", viatura.Id_Viatura);
-            ViewBag.Id_Viatura = new SelectList(db.Manutençao, "Id_Viatura", "Matricula", viatura.Id_Viatura);
+            
+            ViewBag.NºProcedimento = new SelectList(db.Contrato, "Id_Contrato", "NºProcedimento", viatura.Id_Contrato);
+            ViewBag.PedidoCompra = new SelectList(db.Contrato, "Id_Contrato", "PedidoCompra", viatura.Id_Contrato);
             return View(viatura);
         }
 
@@ -107,6 +109,7 @@ namespace Exemplo.Controllers
         {
             if (id == null)
             {
+
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Viatura viatura = db.Viatura.Find(id);

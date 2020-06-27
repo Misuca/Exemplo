@@ -21,6 +21,7 @@ namespace Exemplo.Models
         public string PedidoCompra { get; set; }
         public Nullable<int> Preço { get; set; }
         public string NomeDespesa { get; set; }
+        public int Id_Despesa { get; set; }
     
         public virtual Fornecedores Fornecedores { get; set; }
         public virtual Viatura Viatura { get; set; }

@@ -16,9 +16,9 @@
         </EntityType>
         <EntityType Name="Despesa">
           <Key>
-            <PropertyRef Name="Id_Viatura" />
-            <PropertyRef Name="Id_Fornecedor" />
+            <PropertyRef Name="Id_Despesa" />
           </Key>
+          <Property Name="Id_Despesa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Viatura" Type="int" Nullable="false" />
           <Property Name="Id_Fornecedor" Type="int" Nullable="false" />
           <Property Name="DataDespesa" Type="date" />
@@ -51,8 +51,9 @@
         </EntityType>
         <EntityType Name="Manutençao">
           <Key>
-            <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_Manutencao" />
           </Key>
+          <Property Name="Id_Manutencao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Viatura" Type="int" Nullable="false" />
           <Property Name="DataManutençao" Type="date" />
           <Property Name="Reparaçao" Type="nvarchar(max)" />
@@ -114,8 +115,6 @@
           <Property Name="Matricula" Type="nvarchar" MaxLength="8" />
           <Property Name="Marca" Type="nvarchar(max)" />
           <Property Name="Modelo" Type="nvarchar(max)" />
-          <Property Name="NºProcedimento" Type="nvarchar(max)" />
-          <Property Name="PedidoCompra" Type="nvarchar(max)" />
           <Property Name="Combustivel" Type="nvarchar(max)" />
           <Property Name="PreçoTotal" Type="real" />
         </EntityType>
@@ -157,7 +156,7 @@
         </Association>
         <Association Name="FK_Manutençao_Viatura">
           <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
-          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="0..1" />
+          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Viatura">
               <PropertyRef Name="Id_Viatura" />
@@ -291,8 +290,7 @@
         </EntityType>
         <EntityType Name="Despesa">
           <Key>
-            <PropertyRef Name="Id_Viatura" />
-            <PropertyRef Name="Id_Fornecedor" />
+            <PropertyRef Name="Id_Despesa" />
           </Key>
           <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
           <Property Name="Id_Fornecedor" Type="Int32" Nullable="false" />
@@ -303,6 +301,7 @@
           <NavigationProperty Name="Fornecedores" Relationship="Self.FK_Despesa_Fornecedores" FromRole="Despesa" ToRole="Fornecedores" />
           <NavigationProperty Name="Viatura" Relationship="Self.FK_Despesa_Viatura" FromRole="Despesa" ToRole="Viatura" />
           <Property Name="NomeDespesa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Despesa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Fornecedores">
           <Key>
@@ -330,7 +329,7 @@
         </EntityType>
         <EntityType Name="Manutençao">
           <Key>
-            <PropertyRef Name="Id_Viatura" />
+            <PropertyRef Name="Id_Manutencao" />
           </Key>
           <Property Name="Id_Viatura" Type="Int32" Nullable="false" />
           <Property Name="DataManutençao" Type="DateTime" Precision="0" />
@@ -338,6 +337,7 @@
           <Property Name="Fatura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Preço" Type="Int32" />
           <NavigationProperty Name="Viatura" Relationship="Self.FK_Manutençao_Viatura" FromRole="Manutençao" ToRole="Viatura" />
+          <Property Name="Id_Manutencao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -400,14 +400,12 @@
           <Property Name="Matricula" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="Marca" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NºProcedimento" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PedidoCompra" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Combustivel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PreçoTotal" Type="Int32" />
           <NavigationProperty Name="Contrato" Relationship="Self.FK_Viatura_Contrato" FromRole="Viatura" ToRole="Contrato" />
           <NavigationProperty Name="Despesa" Relationship="Self.FK_Despesa_Viatura" FromRole="Viatura" ToRole="Despesa" />
           <NavigationProperty Name="Kilometros" Relationship="Model.FK_Kilometros_Viatura" FromRole="Viatura" ToRole="Kilometros" />
-          <NavigationProperty Name="Manutençao" Relationship="Self.FK_Manutençao_Viatura" FromRole="Viatura" ToRole="Manutençao" />
+          <NavigationProperty Name="Manutençao" Relationship="Model.FK_Manutençao_Viatura" FromRole="Viatura" ToRole="Manutençao" />
           <NavigationProperty Name="Utilizaçao_Permanente" Relationship="Self.FK_Utilizaçao_Permanente_Viatura" FromRole="Viatura" ToRole="Utilizaçao_Permanente" />
           <NavigationProperty Name="Utilizaçao_Temporaria" Relationship="Model.FK_Utilizaçao_Temporaria_Viatura" FromRole="Viatura" ToRole="Utilizaçao_Temporaria" />
         </EntityType>
@@ -461,7 +459,7 @@
         </Association>
         <Association Name="FK_Manutençao_Viatura">
           <End Role="Viatura" Type="Self.Viatura" Multiplicity="1" />
-          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="0..1" />
+          <End Role="Manutençao" Type="Self.Manutençao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Viatura">
               <PropertyRef Name="Id_Viatura" />
@@ -586,6 +584,7 @@
           <EntitySetMapping Name="Despesa">
             <EntityTypeMapping TypeName="Model.Despesa">
               <MappingFragment StoreEntitySet="Despesa">
+                <ScalarProperty Name="Id_Despesa" ColumnName="Id_Despesa" />
                 <ScalarProperty Name="NomeDespesa" ColumnName="NomeDespesa" />
                 <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
                 <ScalarProperty Name="Id_Fornecedor" ColumnName="Id_Fornecedor" />
@@ -623,6 +622,7 @@
           <EntitySetMapping Name="Manutençao">
             <EntityTypeMapping TypeName="Model.Manutençao">
               <MappingFragment StoreEntitySet="Manutençao">
+                <ScalarProperty Name="Id_Manutencao" ColumnName="Id_Manutencao" />
                 <ScalarProperty Name="Id_Viatura" ColumnName="Id_Viatura" />
                 <ScalarProperty Name="DataManutençao" ColumnName="DataManutençao" />
                 <ScalarProperty Name="Reparaçao" ColumnName="Reparaçao" />
@@ -689,8 +689,6 @@
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
                 <ScalarProperty Name="Marca" ColumnName="Marca" />
                 <ScalarProperty Name="Modelo" ColumnName="Modelo" />
-                <ScalarProperty Name="NºProcedimento" ColumnName="NºProcedimento" />
-                <ScalarProperty Name="PedidoCompra" ColumnName="PedidoCompra" />
                 <ScalarProperty Name="Combustivel" ColumnName="Combustivel" />
                 <ScalarProperty Name="PreçoTotal" ColumnName="PreçoTotal" />
               </MappingFragment>

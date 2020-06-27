@@ -4,13 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Utilização Temporaria</h2>
 
 <p>
     <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
+
+<form class="form-inline" action="/UT" method="get" style="margin-bottom: 10px">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Pesquisar..." name="pesquisa">
+    </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
+</form>
+
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Viatura.Matricula)
         </th>
@@ -26,14 +37,15 @@
         <th>
             @Html.DisplayNameFor(model => model.HoraFim)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Utilizador.Nome)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
 <tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.Viatura.Matricula)
     </td>
@@ -49,9 +61,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.HoraFim)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Utilizador.Nome)
-    </td>
+
     <td>
         <a class="btn btn-primary" href="@Url.Action("Edit", new { id_UT = item.Id_UtilizacaoTemporaria})"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-primary" href="@Url.Action("Details", new { id_UT = item.Id_UtilizacaoTemporaria})"><span class="glyphicon glyphicon-search"></span></a>

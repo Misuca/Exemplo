@@ -17,7 +17,9 @@ namespace Exemplo.Controllers
         // GET: Fornecedores
         public ActionResult Index(string pesquisa = "")
         {
-            var fornecedores = db.Fornecedores.Where((fornecedor) => fornecedor.Localidade.Contains(pesquisa) || fornecedor.NomeFornecedor.Contains(pesquisa));
+            var fornecedores = db.Fornecedores.Where((fornecedor) => fornecedor.Localidade.Contains(pesquisa) || fornecedor.NomeFornecedor.Contains(pesquisa) 
+            || fornecedor.NIPC.Contains(pesquisa) || fornecedor.Morada.Contains(pesquisa) || fornecedor.CodigoPostal.Contains(pesquisa) 
+            || fornecedor.Telefone.Contains(pesquisa) || fornecedor.Email.Contains(pesquisa));
             return View(fornecedores.ToList());
         }
 

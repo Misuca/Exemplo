@@ -15,10 +15,10 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: UT
-        public ActionResult Index()
+        public ActionResult Index(string pesquisa = "")
         {
-            var utilizaçao_Temporaria = db.Utilizaçao_Temporaria.Include(u => u.Utilizador).Include(u => u.Viatura);
-            return View(utilizaçao_Temporaria.ToList());
+            var _UT = db.Utilizaçao_Temporaria.Where((UT) => UT.Viatura.Matricula.Contains(pesquisa) || UT.Utilizador.Nome.Contains(pesquisa));
+            return View(_UT.ToList());
         }
 
         // GET: UT/Details/5
@@ -49,7 +49,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_UtilizacaoTemporaria,Id_Utilizador,Id_Viatura,Matricula,DataInicio,DataFim")] Utilizaçao_Temporaria utilizaçao_Temporaria)
+        public ActionResult Create([Bind(Include = "Id_UtilizacaoTemporaria,Id_Utilizador,Id_Viatura,Matricula,DataInicio,DataFim,HoraInicio,HoraFim")] Utilizaçao_Temporaria utilizaçao_Temporaria)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_UtilizacaoTemporaria,Id_Utilizador,Id_Viatura,Matricula,DataInicio,DataFim")] Utilizaçao_Temporaria utilizaçao_Temporaria)
+        public ActionResult Edit([Bind(Include = "Id_UtilizacaoTemporaria,Id_Utilizador,Id_Viatura,Matricula,DataInicio,DataFim,HoraInicio,HoraFim")] Utilizaçao_Temporaria utilizaçao_Temporaria)
         {
             if (ModelState.IsValid)
             {

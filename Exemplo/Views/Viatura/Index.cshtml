@@ -4,11 +4,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Viatura</h2>
 
 <p>
     <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
+
+<form class="form-inline" action="/Viatura" method="get" style="margin-bottom: 10px">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Pesquisar..." name="pesquisa">
+    </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -21,19 +29,16 @@
             @Html.DisplayNameFor(model => model.Modelo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NºProcedimento)
+            @Html.DisplayNameFor(model => model.Contrato.NºProcedimento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PedidoCompra)
+            @Html.DisplayNameFor(model => model.Contrato.PedidoCompra)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Combustivel)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PreçoTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contrato.NomeFornecedor)
         </th>
         <th></th>
     </tr>
@@ -50,10 +55,10 @@
         @Html.DisplayFor(modelItem => item.Modelo)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.NºProcedimento)
+        @Html.DisplayFor(modelItem => item.Contrato.NºProcedimento)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.PedidoCompra)
+        @Html.DisplayFor(modelItem => item.Contrato.PedidoCompra)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Combustivel)
@@ -61,9 +66,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.PreçoTotal)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Contrato.NomeFornecedor)
-    </td>
+
     <td>
         <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.Id_Viatura})"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-primary" href="@Url.Action("Details", new { id = item.Id_Viatura})"><span class="glyphicon glyphicon-search"></span></a>

@@ -17,7 +17,7 @@ namespace Exemplo.Controllers
         // GET: Contrato
        public ActionResult Index(string pesquisa = "")
         {
-            var contratos = db.Contrato.Where((contrato) => contrato.NomeFornecedor.Contains(pesquisa));
+            var contratos = db.Contrato.Where((contrato) => contrato.NomeFornecedor.Contains(pesquisa)|| contrato.PedidoCompra.Contains(pesquisa)||contrato.NºProcedimento.Contains(pesquisa));
             return View(contratos.ToList());
         }
 

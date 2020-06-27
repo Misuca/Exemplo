@@ -4,19 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Fornecedores</h2>
 
 <p>
     <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
 
-<form class="col-12" action="/Fornecedores" method="get">
+<form class="form-inline" action="/Fornecedores" method="get" style="margin-bottom: 10px">
     <div class="form-group">
-        <div class="col-md-10">
-            <input class="form-control" type="text" name="pesquisa" value="" />
-            <button class="btn btn-primary" type="submit">Procurar</button>
-        </div> 
-    </div>  
+        <input type="text" class="form-control" placeholder="Pesquisar..." name="pesquisa">
+    </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
 </form>
 
 <table class="table">

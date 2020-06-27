@@ -18,10 +18,10 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Viatura.Matricula, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Id_Viatura, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Id_Viatura", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Viatura.Matricula, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Id_Viatura, "", new { @class = "text-danger" })
             </div>
         </div>
 

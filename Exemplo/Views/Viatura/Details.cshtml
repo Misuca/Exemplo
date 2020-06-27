@@ -35,19 +35,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NºProcedimento)
+            @Html.DisplayNameFor(model => model.Contrato.NºProcedimento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NºProcedimento)
+            @Html.DisplayFor(model => model.Contrato.NºProcedimento)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PedidoCompra)
+            @Html.DisplayNameFor(model => model.Contrato.PedidoCompra)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PedidoCompra)
+            @Html.DisplayFor(model => model.Contrato.PedidoCompra)
         </dd>
 
         <dt>
@@ -66,17 +66,10 @@
             @Html.DisplayFor(model => model.PreçoTotal)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contrato.NomeFornecedor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contrato.NomeFornecedor)
-        </dd>
     </dl>
 </div>
 <p>
-    <a class="btn btn-primary" href="@Url.Action("Edit", new { idViatura = Model.Id_Viatura})"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.Id_Viatura})"><span class="glyphicon glyphicon-pencil"></span></a>
     <a class="btn btn-primary" href="@Url.Action("Index")"><span class="glyphicon glyphicon-arrow-left"></span></a>
 </p>
 

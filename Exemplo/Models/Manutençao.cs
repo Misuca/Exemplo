@@ -19,6 +19,7 @@ namespace Exemplo.Models
         public string Reparaçao { get; set; }
         public string Fatura { get; set; }
         public Nullable<int> Preço { get; set; }
+        public int Id_Manutencao { get; set; }
     
         public virtual Viatura Viatura { get; set; }
     }

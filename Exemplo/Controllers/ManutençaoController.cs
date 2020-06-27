@@ -15,10 +15,10 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: Manutençao
-        public ActionResult Index()
+        public ActionResult Index(string pesquisa = "")
         {
-            var manutençao = db.Manutençao.Include(m => m.Viatura);
-            return View(manutençao.ToList());
+            var manutençoes = db.Manutençao.Where((manutençao) => manutençao.Reparaçao.Contains(pesquisa) || manutençao.Fatura.Contains(pesquisa) || manutençao.Viatura.Matricula.Contains(pesquisa));
+            return View(manutençoes.ToList());
         }
 
         // GET: Manutençao/Details/5
@@ -48,7 +48,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Viatura,DataManutençao,Matricula,Reparaçao,Fatura,Preço")] Manutençao manutençao)
+        public ActionResult Create([Bind(Include = "Id_Viatura,DataManutençao,Reparaçao,Fatura,Preço")] Manutençao manutençao)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Exemplo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Viatura,DataManutençao,Matricula,Reparaçao,Fatura,Preço")] Manutençao manutençao)
+        public ActionResult Edit([Bind(Include = "Id_Manutencao,Id_Viatura,DataManutençao,Matricula,Reparaçao,Fatura,Preço")] Manutençao manutençao)
         {
             if (ModelState.IsValid)
             {

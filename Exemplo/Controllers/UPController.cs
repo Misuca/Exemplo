@@ -15,12 +15,11 @@ namespace Exemplo.Controllers
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
         // GET: UP
-        public ActionResult Index()
+        public ActionResult Index(string pesquisa = "")
         {
-            var utilizaçao_Permanente = db.Utilizaçao_Permanente.Include(u => u.Utilizador).Include(u => u.Viatura);
-            return View(utilizaçao_Permanente.ToList());
+            var _UP = db.Utilizaçao_Permanente.Where((UP) => UP.Viatura.Matricula.Contains(pesquisa) || UP.Utilizador.Nome.Contains(pesquisa));
+            return View(_UP.ToList());
         }
-
         // GET: UP/Details/5
         public ActionResult Details(int? id_UP)
         {

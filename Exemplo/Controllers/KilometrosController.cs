@@ -14,14 +14,14 @@ namespace Exemplo.Controllers
     {
         private Gestão_de_Frota_de_AutomoveisEntities db = new Gestão_de_Frota_de_AutomoveisEntities();
 
-        // GET: Kilometros
-        public ActionResult Index()
+        
+        public ActionResult Index(string pesquisa = "")
         {
-            var kilometros = db.Kilometros.Include(k => k.Viatura);
+            var kilometros = db.Kilometros.Where((kilometro) => kilometro.Viatura.Matricula.Contains(pesquisa));
             return View(kilometros.ToList());
         }
 
-        // GET: Kilometros/Details/5
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,19 +36,18 @@ namespace Exemplo.Controllers
             return View(kilometros);
         }
 
-        // GET: Kilometros/Create
+       
         public ActionResult Create()
         {
+            
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula");
             return View();
         }
 
-        // POST: Kilometros/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Viatura,Matricula,DataRegisto,QuantidadeKm")] Kilometros kilometros)
+        public ActionResult Create([Bind(Include = "Id_Viatura,QuantidadeKm,DataRegisto")] Kilometros kilometros)
         {
             if (ModelState.IsValid)
             {
@@ -57,11 +56,11 @@ namespace Exemplo.Controllers
                 return RedirectToAction("Index");
             }
 
+           
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
             return View(kilometros);
         }
 
-        // GET: Kilometros/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,17 +72,15 @@ namespace Exemplo.Controllers
             {
                 return HttpNotFound();
             }
+            
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
-
             return View(kilometros);
         }
 
-        // POST: Kilometros/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Viatura,Matricula,DataRegisto,Kilometros1")] Kilometros kilometros)
+        public ActionResult Edit([Bind(Include = "Id_Kilometros,Id_Viatura,QuantidadeKm,DataRegisto")] Kilometros kilometros)
         {
             if (ModelState.IsValid)
             {
@@ -91,12 +88,11 @@ namespace Exemplo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
             ViewBag.Id_Viatura = new SelectList(db.Viatura, "Id_Viatura", "Matricula", kilometros.Id_Viatura);
-
             return View(kilometros);
         }
 
-        // GET: Kilometros/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,10 +107,9 @@ namespace Exemplo.Controllers
             return View(kilometros);
         }
 
-        // POST: Kilometros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
             Kilometros kilometros = db.Kilometros.Find(id);
             db.Kilometros.Remove(kilometros);

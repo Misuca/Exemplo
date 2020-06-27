@@ -4,19 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Despesa</h2>
 
 <p>
     <a class="btn btn-primary" href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
 
-<form class="col-12" action="/Despesa" method="get">
+<form class="form-inline" action="/Despesa" method="get" style="margin-bottom: 10px">
     <div class="form-group">
-        <div class="col-md-10">
-            <input class="form-control" type="text" name="pesquisa" value="" />
-            <button class="btn btn-primary" type="submit">Procurar</button>
-        </div>
+        <input type="text" class="form-control" placeholder="Pesquisar..." name="pesquisa">
     </div>
+    <button class="btn btn-primary" type="submit">Procurar</button>
 </form>
 
 <table class="table">
@@ -63,9 +61,9 @@
         @Html.DisplayFor(modelItem => item.Viatura.Matricula)
     </td>
     <td>
-        <a class="btn btn-primary" href="@Url.Action("Edit", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-primary" href="@Url.Action("Details", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-search"></span></a>
-        <a class="btn btn-primary" href="@Url.Action("Delete", new { idViatura = item.Id_Viatura, idFornecedor = item.Id_Fornecedor})"><span class="glyphicon glyphicon-trash"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.Id_Despesa})"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Details", new { id = item.Id_Despesa})"><span class="glyphicon glyphicon-search"></span></a>
+        <a class="btn btn-primary" href="@Url.Action("Delete", new { id = item.Id_Despesa})"><span class="glyphicon glyphicon-trash"></span></a>
     </td>
 </tr>
 }
